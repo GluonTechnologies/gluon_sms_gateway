@@ -25,6 +25,9 @@ services:
     image: jookies/jasmin:latest
     restart: unless-stopped
     container_name: jasmin
+    volumes:
+      - ./jasmin/store:/etc/jasmin/store
+      - ./jasmin/log:/var/log/jasmin
     ports:
       - 2775:2775
       - 8990:8990
@@ -44,11 +47,10 @@ services:
       - 5672:5672
   
   jasmin_sms_sync_api:
-    build: .
     image: gluontech/jasmin_sms_sync_api
     restart: unless-stopped
     ports:
-      - 3001:5000
+      - 5000:5000
     environment:
       - AMPQ_HOST=${AMPQ_HOST}
       - AMPQ_VHOST=${AMPQ_VHOST}
@@ -61,9 +63,6 @@ services:
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
 
   jasmin_sms_sync_received:
-    build:
-      context: .
-      dockerfile: Dockerfile.app1
     image: gluontech/jasmin_sms_sync_received
     restart: unless-stopped
     environment:
@@ -75,9 +74,6 @@ services:
       - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
 
   jasmin_sms_sync_delivery:
-    build:
-      context: .
-      dockerfile: Dockerfile.app2
     image: gluontech/jasmin_sms_sync_delivery
     restart: unless-stopped
     environment:

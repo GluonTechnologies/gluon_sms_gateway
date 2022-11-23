@@ -1,0 +1,73 @@
+2022-11-23 12:53:06 INFO     1 Router configured and ready.
+2022-11-23 12:53:06 INFO     1 Added amqpBroker to RouterPB
+2022-11-23 12:53:06 INFO     1 RouterPB is consuming from routing key: deliver.sm.*
+2022-11-23 12:53:06 INFO     1 RouterPB is consuming from routing key: bill_request.submit_sm_resp.*
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile Groups configuration from /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-groups: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-groups'
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile Users configuration from /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-users: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-users'
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile MO Interceptors configuration from /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-mointerceptors: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-mointerceptors'
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile MT Interceptors configuration from /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-mtinterceptors: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-mtinterceptors'
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile MO Routes configuration from /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-moroutes: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-moroutes'
+2022-11-23 12:53:06 INFO     1 Loading/Activating [jcli-prod] profile MT Routes configuration from /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 12:53:06 ERROR    1 Cannot load configuration from /etc/jasmin/store/jcli-prod.router-mtroutes: [Errno 2] No such file or directory: '/etc/jasmin/store/jcli-prod.router-mtroutes'
+2022-11-23 12:53:34 INFO     1 Getting all groups
+2022-11-23 12:53:41 INFO     1 Adding a Group (id:group_1)
+2022-11-23 12:53:41 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 12:53:41 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 12:53:41 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 12:53:41 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 12:53:41 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 12:53:41 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 12:56:19 INFO     1 Getting all groups
+2022-11-23 12:56:36 INFO     1 Adding a User (id:gluon)
+2022-11-23 12:56:36 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 12:56:36 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 12:56:36 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 12:56:36 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 12:56:36 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 12:56:36 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 12:56:44 INFO     1 Getting all users
+2022-11-23 12:58:15 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 12:58:15 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 12:58:15 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 12:58:15 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 12:58:15 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 12:58:15 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:01:10 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 13:01:10 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 13:01:10 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 13:01:10 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 13:01:10 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 13:01:10 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:01:29 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 13:01:29 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 13:01:29 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 13:01:29 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 13:01:29 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 13:01:29 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:01:42 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 13:01:42 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 13:01:42 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 13:01:42 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 13:01:42 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 13:01:42 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:02:17 INFO     1 Adding a MT Route with order 0
+2022-11-23 13:02:18 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 13:02:18 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 13:02:18 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 13:02:18 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 13:02:18 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 13:02:18 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:02:26 INFO     1 Getting MT Routing table
+2022-11-23 13:03:38 INFO     1 Adding a MO Route with order 0
+2022-11-23 13:03:38 INFO     1 Persisting current Groups configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-groups
+2022-11-23 13:03:38 INFO     1 Persisting current Users configuration to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-users
+2022-11-23 13:03:38 INFO     1 Persisting current MOInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mointerceptors
+2022-11-23 13:03:38 INFO     1 Persisting current MTInterceptionTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtinterceptors
+2022-11-23 13:03:38 INFO     1 Persisting current MORoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-moroutes
+2022-11-23 13:03:38 INFO     1 Persisting current MTRoutingTable to [jcli-prod] profile in /etc/jasmin/store/jcli-prod.router-mtroutes
+2022-11-23 13:03:51 INFO     1 Getting MO Routing table
