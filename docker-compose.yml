@@ -26,8 +26,8 @@ services:
     restart: unless-stopped
     container_name: jasmin
     volumes:
-      - ./jasmin/store:/etc/jasmin/store
-      - ./jasmin/log:/var/log/jasmin
+      - ./gluon/store:/etc/jasmin/store
+      - ./gluon/log:/var/log/jasmin
     ports:
       - 2775:2775
       - 8990:8990
