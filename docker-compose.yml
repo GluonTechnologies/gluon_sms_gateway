@@ -42,3 +42,48 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
+  
+  jasmin_sms_sync_api:
+    build: .
+    image: gluontech/jasmin_sms_sync_api
+    restart: unless-stopped
+    ports:
+      - 3001:5000
+    environment:
+      - AMPQ_HOST=${AMPQ_HOST}
+      - AMPQ_VHOST=${AMPQ_VHOST}
+      - AMPQ_PORT=${AMPQ_PORT}
+      - AMPQ_USERNAME=${AMPQ_USERNAME}
+      - AMPQ_PASSWORD=${AMPQ_PASSWORD}
+      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}
+      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}
+      - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
+      - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+
+  jasmin_sms_sync_received:
+    build:
+      context: .
+      dockerfile: Dockerfile.app1
+    image: gluontech/jasmin_sms_sync_received
+    restart: unless-stopped
+    environment:
+      - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
+      - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+      - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
+      - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
+      - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
+      - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
+
+  jasmin_sms_sync_delivery:
+    build:
+      context: .
+      dockerfile: Dockerfile.app2
+    image: gluontech/jasmin_sms_sync_delivery
+    restart: unless-stopped
+    environment:
+      - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
+      - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+      - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
+      - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
+      - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
+      - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
