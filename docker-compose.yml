@@ -65,6 +65,8 @@ services:
   jasmin_sms_sync_received:
     image: gluontech/jasmin_sms_sync_received
     restart: unless-stopped
+    deploy:
+      replicas: 5
     environment:
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
@@ -76,6 +78,8 @@ services:
   jasmin_sms_sync_delivery:
     image: gluontech/jasmin_sms_sync_delivery
     restart: unless-stopped
+    deploy:
+      replicas: 5
     environment:
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
