@@ -62,27 +62,29 @@ services:
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
 
-  jasmin_sms_sync_received:
-    image: gluontech/jasmin_sms_sync_received
+  jasmin_sms_sync_received_message:
+    image: gluontech/jasmin_sms_sync_app
     restart: unless-stopped
     deploy:
       replicas: 1
     environment:
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_RECEIVED_QUEUE_NAME}
       - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
       - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
       - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
       - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
 
-  jasmin_sms_sync_delivery:
-    image: gluontech/jasmin_sms_sync_delivery
+  jasmin_sms_sync_delivery_message:
+    image: gluontech/jasmin_sms_sync_app
     restart: unless-stopped
     deploy:
       replicas: 1
     environment:
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_DELIVERY_QUEUE_NAME}
       - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
       - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
       - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
