@@ -50,7 +50,7 @@ services:
     image: gluontech/jasmin_sms_sync_api
     restart: unless-stopped
     ports:
-      - 5000:5000
+      - 3001:5000
     environment:
       - AMPQ_HOST=${AMPQ_HOST}
       - AMPQ_VHOST=${AMPQ_VHOST}
@@ -59,33 +59,64 @@ services:
       - AMPQ_PASSWORD=${AMPQ_PASSWORD}
       - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}
       - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}
+
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
+      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_AMPQ_QUEUE_NAME}
 
-  jasmin_sms_sync_received_message:
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+
+  jasmin_sms_sync_received_msg:
     image: gluontech/jasmin_sms_sync_app
     restart: unless-stopped
     deploy:
       replicas: 1
     environment:
+      - AMPQ_HOST=${AMPQ_HOST}
+      - AMPQ_VHOST=${AMPQ_VHOST}
+      - AMPQ_PORT=${AMPQ_PORT}
+      - AMPQ_USERNAME=${AMPQ_USERNAME}
+      - AMPQ_PASSWORD=${AMPQ_PASSWORD}
+      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.received_messages
+      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.received_messages
+
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
-      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_RECEIVED_QUEUE_NAME}
-      - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
-      - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
-      - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
-      - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
+      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_AMPQ_QUEUE_NAME}.received_messages
 
-  jasmin_sms_sync_delivery_message:
+      - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
+
+  jasmin_sms_sync_delivery_msg:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
     image: gluontech/jasmin_sms_sync_app
     restart: unless-stopped
     deploy:
       replicas: 1
     environment:
+      - AMPQ_HOST=${AMPQ_HOST}
+      - AMPQ_VHOST=${AMPQ_VHOST}
+      - AMPQ_PORT=${AMPQ_PORT}
+      - AMPQ_USERNAME=${AMPQ_USERNAME}
+      - AMPQ_PASSWORD=${AMPQ_PASSWORD}
+      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.delivery_messages
+      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.delivery_messages
+
       - LOCAL_AMPQ_HOST=${LOCAL_AMPQ_HOST}
       - LOCAL_AMPQ_PORT=${LOCAL_AMPQ_PORT}
-      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_DELIVERY_QUEUE_NAME}
-      - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
-      - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
+      - LOCAL_AMPQ_QUEUE_NAME=${LOCAL_AMPQ_QUEUE_NAME}.delivery_messages
+
       - MAX_RE_SYNC_COUNT=${MAX_RE_SYNC_COUNT}
-      - RE_SYNC_SLEEP_TIME=${RE_SYNC_SLEEP_TIME}
+
+  jasmin_sms_sync_redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ./cache/redis/data:/data
+    restart: unless-stopped
+    environment:
+      - REDIS_REPLICATION_MODE=master
