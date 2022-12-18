@@ -18,8 +18,8 @@ services:
       - ./gluon/store:/etc/jasmin/store
       - ./gluon/log:/var/log/jasmin
     ports:
-      - 2775:2775
-      - 8990:8990
+      - 5634:2775
+      - 7687:8990
     depends_on:
       - jasmin_sms_redis
       - jasmin_sms_amq
