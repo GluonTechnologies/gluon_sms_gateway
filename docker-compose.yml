@@ -12,11 +12,10 @@ services:
   jasmin_sms_jasmin:
     image: jookies/jasmin:latest
     restart: unless-stopped
-    container_name: jasmin
     volumes:
-      - ./gluon/opt:/opt
+      # - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
-      - ./gluon/log:/var/log/jasmin
+      # - ./gluon/log:/var/log/jasmin
     ports:
       - 5634:2775
       - 7687:8990
