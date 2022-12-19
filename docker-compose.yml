@@ -10,8 +10,8 @@ services:
       - AMPQ_PORT=${AMPQ_PORT}
       - AMPQ_USERNAME=${AMPQ_USERNAME}
       - AMPQ_PASSWORD=${AMPQ_PASSWORD}
-      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}
-      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}
+      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.configurer
+      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.configurer
       - JASMIN_TELNET_HOST=${JASMIN_TELNET_HOST}
       - JASMIN_TELNET_PORT=${JASMIN_TELNET_PORT}
       - JASMIN_CLI_USERNAME=${JASMIN_CLI_USERNAME}
@@ -27,15 +27,13 @@ services:
       - AMPQ_PORT=${AMPQ_PORT}
       - AMPQ_USERNAME=${AMPQ_USERNAME}
       - AMPQ_PASSWORD=${AMPQ_PASSWORD}
-      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}
-      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}
+      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.sent_messages
+      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.sent_messages
       - JASMIN_SMS_HOST=${JASMIN_SMS_HOST}
       - JASMIN_SMS_PORT=${JASMIN_SMS_PORT}
       - JASMIN_SMS_USERNAME=${JASMIN_SMS_USERNAME}
       - JASMIN_SMS_PASSWORD=${JASMIN_SMS_PASSWORD}
-      - JASMIN_SMS_SYNC_API_HOST=${JASMIN_SMS_SYNC_API_HOST}
-      - JASMIN_SMS_SYNC_API_PORT=${JASMIN_SMS_SYNC_API_PORT}
-      - JASMIN_SMS_SYNC_ROUTE=${JASMIN_SMS_SYNC_ROUTE}
+      - JASMIN_SMS_DELIVERY_SYNC_LINK=${JASMIN_SMS_DELIVERY_SYNC_LINK}
 
   jasmin_sms_redis:
     image: redis:alpine
@@ -69,13 +67,3 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
-  jasmin_sms_sync_redis:
-    image: redis:alpine
-    command: redis-server --appendonly yes
-    ports:
-      - 6379:6379
-    volumes:
-      - ./cache/redis/data:/data
-    restart: unless-stopped
-    environment:
-      - REDIS_REPLICATION_MODE=master
