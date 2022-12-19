@@ -4,10 +4,28 @@ services:
   jasmin_sms_redis:
     image: redis:alpine
     restart: unless-stopped
+    healthcheck:
+      test: redis-cli ping | grep PONG
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 512M
+    security_opt:
+      - no-new-privileges:true
 
   jasmin_sms_amq:
-    image: rabbitmq:alpine
+    image: rabbitmq:3.10-management-alpine
     restart: unless-stopped
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 525M
+    security_opt:
+      - no-new-privileges:true
 
   jasmin_sms_jasmin:
     image: jookies/jasmin:latest
@@ -21,8 +39,17 @@ services:
       - 7687:8990
       - 9345:1401
     depends_on:
-      - jasmin_sms_redis
-      - jasmin_sms_amq
+      jasmin_sms_redis:
+        condition: service_healthy
+      jasmin_sms_amq:
+        condition: service_healthy
     environment:
       REDIS_CLIENT_HOST: jasmin_sms_redis
       AMQP_BROKER_HOST: jasmin_sms_amq
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 525M
+    security_opt:
+      - no-new-privileges:true
