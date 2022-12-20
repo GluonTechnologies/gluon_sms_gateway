@@ -27,8 +27,7 @@ services:
     security_opt:
       - no-new-privileges:true
     ports:
-      - 15672:15672
-      - 5672:5672
+      - 6545:15672
 
   jasmin_sms_jasmin:
     image: jookies/jasmin:latest
