@@ -15,7 +15,7 @@ services:
       - no-new-privileges:true
 
   jasmin_sms_amq:
-    image: rabbitmq:3.10-management-alpine
+    image: rabbitmq:3-management
     restart: unless-stopped
     healthcheck:
       test: rabbitmq-diagnostics -q ping
