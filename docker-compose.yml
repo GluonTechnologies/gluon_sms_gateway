@@ -35,7 +35,6 @@ services:
     restart: unless-stopped
     volumes:
       # - ./gluon/opt:/opt
-      - ./gluon/store:/etc/jasmin/store
       - ./gluon/log:/var/log/jasmin
       - ./gluon/jasmin:/etc/jasmin
     ports:
