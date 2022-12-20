@@ -37,7 +37,7 @@ services:
       - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
       - ./gluon/log:/var/log/jasmin
-      - ./gluon/jasmin.cfg:/etc/jasmin/jasmin.cfg
+      - ./jasmin.cfg:/etc/jasmin/jasmin.cfg 
     ports:
       - 5634:2775
       - 7687:8990
