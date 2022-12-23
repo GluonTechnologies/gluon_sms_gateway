@@ -9,7 +9,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2'
+          cpus: "0.2"
           memory: 512M
     security_opt:
       - no-new-privileges:true
@@ -22,7 +22,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: "0.5"
           memory: 525M
     security_opt:
       - no-new-privileges:true
@@ -36,7 +36,7 @@ services:
       - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
       - ./gluon/log:/var/log/jasmin
-      - ./jasmin.cfg:/etc/jasmin/jasmin.cfg 
+      # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
       - 5634:2775
       - 7687:8990
@@ -52,7 +52,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 525M
     security_opt:
       - no-new-privileges:true
