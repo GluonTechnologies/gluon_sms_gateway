@@ -21,7 +21,7 @@ services:
     volumes:
       - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
-      # - ./tmp/jasmind:/tmp/jasmind
+      - ./tmp:/tmp
       # - ./gluon/log:/var/log/jasmin
       # - ./init.sh:/init.sh
       # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
