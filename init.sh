@@ -7,4 +7,3 @@ if [ "$2" = "--enable-interceptor-client" ]; then
 fi
 
 echo 'Starting jasmind'
-exec "$@"
