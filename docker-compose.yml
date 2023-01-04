@@ -35,9 +35,9 @@ services:
     volumes:
       - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
-      - ./tmp/jasmind:/tmp/jasmind
-      - ./gluon/log:/var/log/jasmin
-      - ./init.sh:/init.sh
+      # - ./tmp/jasmind:/tmp/jasmind
+      # - ./gluon/log:/var/log/jasmin
+      # - ./init.sh:/init.sh
       # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
       - 5634:2775
