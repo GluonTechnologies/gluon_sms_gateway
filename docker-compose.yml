@@ -23,7 +23,7 @@ services:
       - ./gluon/store:/etc/jasmin/store
       - ./tmp:/tmp
       # - ./gluon/log:/var/log/jasmin
-      # - ./init.sh:/init.sh
+      - ./init.sh:/init.sh
       # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
       - 5634:2775
