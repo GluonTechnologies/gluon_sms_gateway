@@ -21,15 +21,14 @@ services:
     volumes:
       - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
-      - ./tmp:/tmp
+      # - ./tmp:/tmp
       # - ./gluon/log:/var/log/jasmin
-      - ./init.sh:/init.sh
+      # - ./init.sh:/init.sh
       # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
       - 5634:2775
       - 7687:8990
       - 9345:1401
-    entrypoint: sh -c "/init.sh"
     depends_on:
       jasmin_sms_redis:
         condition: service_healthy
