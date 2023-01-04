@@ -33,10 +33,10 @@ services:
     image: jookies/jasmin:latest
     restart: unless-stopped
     volumes:
-      # - ./gluon/opt:/opt
+      - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
       - ./tmp/jasmind:/tmp/jasmind
-      # - ./gluon/log:/var/log/jasmin
+      - ./gluon/log:/var/log/jasmin
       # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
       - 5634:2775
