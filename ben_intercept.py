@@ -1,8 +1,12 @@
-import json
+import logging
 
-json_object = json.dumps(routable.pdu.params)
-routable.pdu.params['source_addr'] = '9543'
+# Set logger
+logger = logging.getLogger('logging-example')
+if len(logger.handlers) != 1:
+    hdlr = logging.FileHandler('/opt/log.log')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    hdlr.setFormatter(formatter)
+    logger.addHandler(hdlr)
+    logger.setLevel(logging.DEBUG)
 
-f = open("/opt/log.txt", "a")
-f.write("" + json_object)
-f.close()
+logger.info('Got pdu: %s' % routable.pdu)
