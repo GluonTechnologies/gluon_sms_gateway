@@ -1,13 +1,11 @@
 import logging
 
 
-lookup_json = {
-    'google': 'g-o-o-g-l-e',
-    'truecaller': 'true-caller'
-}
-
-
 def modify(message):
+    lookup_json = {
+        'google': 'g-o-o-g-l-e',
+        'truecaller': 'true-caller'
+    }
     message = str(message.decode())
     for word in message.split():
         if word.lower() in list(lookup_json.keys()):
