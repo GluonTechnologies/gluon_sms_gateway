@@ -1,7 +1,8 @@
 def modify(message):
     lookup_json = {
         'google': 'G-o-o-g-l-e',
-        'truecaller': 'True-caller'
+        'truecaller': 'True-caller',
+        'wechat': 'We-Chat'
     }
     message = str(message.decode())
     for word in message.split():
