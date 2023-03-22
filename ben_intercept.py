@@ -9,4 +9,6 @@ if len(logger.handlers) != 1:
     logger.addHandler(hdlr)
     logger.setLevel(logging.DEBUG)
 
-logger.info('Got pdu: %s' % routable.pdu)
+logger.info('Got pdu: %s' % routable.pdu.params)
+
+routable.pdu.params['source_addr'] = '9543'
