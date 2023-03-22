@@ -1,5 +1,4 @@
-import logging
-import json
+import json, logging
 
 # Message Modifier
 def modify(message):
