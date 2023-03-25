@@ -12,23 +12,14 @@ services:
     restart: unless-stopped
     healthcheck:
       test: rabbitmq-diagnostics -q ping
-    ports:
-      - 6545:15672
-
   jasmin_sms_jasmin:
     image: jookies/jasmin:latest
     restart: unless-stopped
     volumes:
-      - ./gluon/opt:/opt
       - ./gluon/store:/etc/jasmin/store
-      # - ./tmp:/tmp
-      - ./gluon/log:/var/log/jasmin
-      # - ./init.sh:/init.sh
-      # - ./jasmin.cfg:/etc/jasmin/jasmin.cfg
     ports:
-      - 5634:2775
-      - 7687:8990
-      - 9345:1401
+      - 9346:8990
+      - 9347:1401
     depends_on:
       jasmin_sms_redis:
         condition: service_healthy
