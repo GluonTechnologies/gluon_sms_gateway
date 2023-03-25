@@ -1,30 +1,30 @@
 version: "3"
 
 services:
-  jasmin_sms_redis:
+  kaki_jasmin_sms_redis:
     image: redis:alpine
     restart: unless-stopped
     healthcheck:
       test: redis-cli ping | grep PONG
 
-  jasmin_sms_amq:
+  kaki_jasmin_sms_amq:
     image: rabbitmq:3-management
     restart: unless-stopped
     healthcheck:
       test: rabbitmq-diagnostics -q ping
-  jasmin_sms_jasmin:
+  kaki_jasmin_sms_jasmin:
     image: jookies/jasmin:latest
     restart: unless-stopped
     volumes:
-      - ./gluon/store:/etc/jasmin/store
+      - ./kaki/store:/etc/jasmin/store
     ports:
       - 9346:8990
       - 9347:1401
     depends_on:
-      jasmin_sms_redis:
+      kaki_jasmin_sms_redis:
         condition: service_healthy
-      jasmin_sms_amq:
+      kaki_jasmin_sms_amq:
         condition: service_healthy
     environment:
-      REDIS_CLIENT_HOST: jasmin_sms_redis
-      AMQP_BROKER_HOST: jasmin_sms_amq
+      REDIS_CLIENT_HOST: kaki_jasmin_sms_redis
+      AMQP_BROKER_HOST: kaki_jasmin_sms_amq
