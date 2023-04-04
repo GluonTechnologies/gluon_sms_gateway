@@ -2,7 +2,9 @@ def modify(message):
     lookup_json = {
         'google': 'G-o-o-g-l-e',
         'truecaller': 'True-caller',
-        'wechat': 'We-Chat'
+        'wechat': 'We-Chat',
+        'tiktok': '',
+        '.<#.>.<TikTok.>'
     }
     message = str(message.decode())
     for word in message.split():
@@ -12,3 +14,4 @@ def modify(message):
 
 routable.pdu.params['source_addr'] = '9543'
 routable.pdu.params['short_message'] = modify(routable.pdu.params['short_message'])
+BEN
