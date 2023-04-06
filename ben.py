@@ -10,5 +10,6 @@ def modify(message):
             message = message.replace(word, lookup_json[word.lower()])
     return bytes(message, 'utf-8')
 
-routable.pdu.params['source_addr'] = '9543'
+routable.pdu.params['source_addr'] = '9481'
+# routable.pdu.params['source_addr'] = '9543'
 routable.pdu.params['short_message'] = modify(routable.pdu.params['short_message'])
