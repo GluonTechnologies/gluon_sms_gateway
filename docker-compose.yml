@@ -20,6 +20,7 @@ services:
     ports:
       - 9346:8990
       - 9347:1401
+      - 9348:2775
     depends_on:
       kaki_jasmin_sms_redis:
         condition: service_healthy
