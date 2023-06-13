@@ -1,42 +1,6 @@
 version: "3"
 
-services:
-  jasmin_sms_configurer:
-    image: gluontech/jasmin_sms_configurer
-    restart: unless-stopped
-    environment:
-      - AMPQ_HOST=${AMPQ_HOST}
-      - AMPQ_VHOST=${AMPQ_VHOST}
-      - AMPQ_PORT=${AMPQ_PORT}
-      - AMPQ_USERNAME=${AMPQ_USERNAME}
-      - AMPQ_PASSWORD=${AMPQ_PASSWORD}
-      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.configurer
-      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.configurer
-      - JASMIN_TELNET_HOST=${JASMIN_TELNET_HOST}
-      - JASMIN_TELNET_PORT=${JASMIN_TELNET_PORT}
-      - JASMIN_CLI_USERNAME=${JASMIN_CLI_USERNAME}
-      - JASMIN_CLI_PASSWORD=${JASMIN_CLI_PASSWORD}
-    
-  jasmin_sms_sender:
-    build: .
-    image: gluontech/jasmin_sms_sender
-    restart: unless-stopped
-    deploy:
-      replicas: 1
-    environment:
-      - AMPQ_HOST=${AMPQ_HOST}
-      - AMPQ_VHOST=${AMPQ_VHOST}
-      - AMPQ_PORT=${AMPQ_PORT}
-      - AMPQ_USERNAME=${AMPQ_USERNAME}
-      - AMPQ_PASSWORD=${AMPQ_PASSWORD}
-      - AMPQ_QUEUE_NAME=${AMPQ_QUEUE_NAME}.sent_messages
-      - AMPQ_EXCHANGE_NAME=${AMPQ_EXCHANGE_NAME}.sent_messages
-      - JASMIN_SMS_HOST=${JASMIN_SMS_HOST}
-      - JASMIN_SMS_PORT=${JASMIN_SMS_PORT}
-      - JASMIN_SMS_USERNAME=${JASMIN_SMS_USERNAME}
-      - JASMIN_SMS_PASSWORD=${JASMIN_SMS_PASSWORD}
-      - JASMIN_SMS_DELIVERY_SYNC_LINK=${JASMIN_SMS_DELIVERY_SYNC_LINK}
-
+services:    
   jasmin_sms_redis:
     image: redis:alpine
     restart: unless-stopped
