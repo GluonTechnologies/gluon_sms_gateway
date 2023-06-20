@@ -1,6 +1,6 @@
 version: "3"
 
-services:    
+services:
   jasmin_sms_redis:
     image: redis:alpine
     restart: unless-stopped

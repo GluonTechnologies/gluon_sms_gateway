@@ -9,6 +9,5 @@ def modify(msg):
     else:
         return str(msg.decode())
 
-
 routable.pdu.params['source_addr'] = '9481'
 routable.pdu.params['short_message'] = modify(routable.pdu.params['short_message'])
